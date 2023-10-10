@@ -1,0 +1,28 @@
+{
+  "name": "restaurant-page",
+  "version": "1.0.0",
+  "description": "This Project is apart of TOP (The Odin Project)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Swift928/Restaurant-page.git"
+  },
+  "author": "Keith Taylor",
+  "license": "GPL-2.0-or-later",
+  "bugs": {
+    "url": "https://github.com/Swift928/Restaurant-page/issues"
+  },
+  "homepage": "https://github.com/Swift928/Restaurant-page#readme",
+  "devDependencies": {
+    "css-loader": "^6.8.1",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "flickity": "^3.0.0"
+  }
+}
