@@ -3,12 +3,13 @@ import { homeContent } from './bodyContainer';
 import { header } from './menu-bar';
 import { footer } from './footer';
 
-const element = document.getElementById('content')
+function component(){
+    const element = document.createElement('content')
+    element.appendChild(header)
+    element.appendChild(homeContent)
+    element.appendChild(footer)
 
-element.appendChild(header)
+    return element
+}
 
-
-element.appendChild(homeContent)
-
-element.appendChild(footer)
-
+document.body.appendChild(component())

@@ -14,40 +14,58 @@ let carouselWrapper = document.createElement('div')
 carouselWrapper.classList.add('carouselWrapper')
 
 
-// let braisedPorkItem = document.createElement('li')
-// braisedPorkItem.classList.add('carouselItem')
-// braisedPorkItem.dataset.active = true
+let braisedPorkItem = document.createElement('div')
+braisedPorkItem.classList.add('carouselItem')
 let braisedPork = new Image()
 braisedPork.classList.add('dishImage')
 braisedPork.src = firstDish
-// braisedPorkItem.appendChild(braisedPork)
-carouselWrapper.appendChild(braisedPork)
+braisedPorkItem.appendChild(braisedPork)
+let itemDescription1 = document.createElement('p')
+itemDescription1.classList.add('itemDescription')
+itemDescription1.innerHTML = 'Braised Pork Belly'
+braisedPorkItem.appendChild(itemDescription1)
+carouselWrapper.appendChild(braisedPorkItem)
 
-// let wholeCrabItem = document.createElement('li')
-// wholeCrabItem.classList.add('carouselItem')
+let wholeCrabItem = document.createElement('dvi')
+wholeCrabItem.classList.add('carouselItem')
 let wholeCrab = new Image()
 wholeCrab.classList.add('dishImage')
 wholeCrab.src = secondDish
-// wholeCrabItem.appendChild(wholeCrab)
-carouselWrapper.appendChild(wholeCrab)
+wholeCrabItem.appendChild(wholeCrab)
+let itemDescription2 = document.createElement('p')
+itemDescription2.classList.add('itemDescription')
+itemDescription2.innerHTML = 'Wok-Fried Whole Crab'
+wholeCrabItem.appendChild(itemDescription2)
+carouselWrapper.appendChild(wholeCrabItem)
 
-// let ibericoPorkItem = document.createElement('li')
-// ibericoPorkItem.classList.add('carouselItem')
+let ibericoPorkItem = document.createElement('div')
+ibericoPorkItem.classList.add('carouselItem')
 let ibericoPork = new Image()
 ibericoPork.classList.add('dishImage')
 ibericoPork.src = thirdDish
-// ibericoPorkItem.appendChild(ibericoPork)
-carouselWrapper.appendChild(ibericoPork)
+ibericoPorkItem.appendChild(ibericoPork)
+let itemDescription3 = document.createElement('p')
+itemDescription3.classList.add('itemDescription')
+itemDescription3.innerHTML = 'Iberico Pork'
+ibericoPorkItem.appendChild(itemDescription3)
+carouselWrapper.appendChild(ibericoPorkItem)
 
-// let pekingDuckItem = document.createElement('li')
-// pekingDuckItem.classList.add('carouselItem')
+let pekingDuckItem = document.createElement('div')
+pekingDuckItem.classList.add('carouselItem')
 let pekingDuck = new Image()
 pekingDuck.classList.add('dishImage')
 pekingDuck.src = fourthDish
-// pekingDuckItem.appendChild(pekingDuck)
-carouselWrapper.appendChild(pekingDuck )
+pekingDuckItem.appendChild(pekingDuck)
+let itemDescription4 = document.createElement('p')
+itemDescription4.classList.add('itemDescription')
+itemDescription4.innerHTML = 'Peking Duck'
+pekingDuckItem.appendChild(itemDescription4)
+carouselWrapper.appendChild(pekingDuckItem)
 
 imageCarousel.appendChild(carouselWrapper)
+
+
+
 
 // Create the buttons
 let leftButton = document.createElement('button')
@@ -72,7 +90,7 @@ const flkty = new Flickity(carouselWrapper, {
     autoPlay: false,
     prevNextButtons: false,
     pageDots: false,
-    LazyLoad: true,
+    lazyLoad: false,
     initialIndex: 2,
   });
   
@@ -86,32 +104,3 @@ const flkty = new Flickity(carouselWrapper, {
   rightButton.addEventListener('click', () => {
     flkty.next(); // Move to the next slide
   });
-
-  
-  
-
-// const buttons = imageCarousel.querySelectorAll("[data-carousel-button]")
-
-// buttons.forEach((button) => {
-//     button.addEventListener('click', () => {
-
-//         console.log('esf')
-//         const offset = button.dataset.carouselButton === 'right' ? 1 : -1;
-//         const slides = button.closest('.imageCarousel').querySelector('.carouselWrapper')
-
-//         const activeSlide = slides.querySelector('[data-active]')
-//         let newIndex = [...slides.children].indexOf(activeSlide) + offset;
-
-//         if (newIndex < 0) newIndex = slides.children.length - 1;
-//         if (newIndex >= slides.children.length) newIndex = 0;
-
-//         const translateX = -newIndex * 100 + '%';
-//         slides.style.transform = `translateX(${translateX})`;
-
-
-//         slides.children[newIndex].dataset.active = true
-//         delete activeSlide.dataset.active
-    
-//     })
-// })
-

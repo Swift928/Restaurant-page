@@ -1,6 +1,6 @@
 import image from './images/interior-1_1920x1080.jpg.resize.0.0.1270.711.jpg'
 import { homeContainer } from './homePage';
-import { imageCarousel } from './menu';
+import { menuHandler } from './menu-handler';
 
 // Create the Container Div
 const element = document.createElement('div')
@@ -21,7 +21,7 @@ centerContainer.classList.add('centerContainer')
 // Add homepage render
 // centerContainer.appendChild(homeContainer)
 
-centerContainer.appendChild(imageCarousel)
+centerContainer.appendChild(menuHandler)
 
 
 element.appendChild(centerContainer)
