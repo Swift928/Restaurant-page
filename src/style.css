@@ -87,12 +87,12 @@ body{
     height: calc(100% - 57px);
 }
 
-.imageCarousel *:not(.dishImage) {
+.imageCarousel *:not(.dishImage, .itemDescription) {
     height: 100% !important;
 }
 
-.dishImage{
-    height: calc(100% - 24px);
+[data-active=false]{
+    display: none;
 }
 
 .main-content::after {
@@ -142,7 +142,6 @@ body{
     overflow: hidden;
 }
 
-
 .carouselItem {
     padding: 0 20px;
     object-fit: cover;
@@ -154,12 +153,11 @@ body{
 .dishImage{
     object-fit: cover;
     object-position: center;
-    cursor: default;
+    height: calc(100% - 24px);
 }
 
 .flickity-viewport {
     overflow: visible !important;
-    height: inherit;
 }
 
 .flickity-cell {
@@ -199,8 +197,8 @@ body{
     border: none;
     text-decoration: none;
     font-size: 16px;
-    /* padding: 5px; */
     margin-bottom: 10px;
+    cursor: pointer;
 }
 
 .menuName{

@@ -9,6 +9,7 @@ import 'flickity/css/flickity.css';
 
 export let imageCarousel = document.createElement('div')
 imageCarousel.classList.add('imageCarousel')
+imageCarousel.dataset.active = true
 
 let carouselWrapper = document.createElement('div')
 carouselWrapper.classList.add('carouselWrapper')
@@ -90,7 +91,6 @@ const flkty = new Flickity(carouselWrapper, {
     autoPlay: false,
     prevNextButtons: false,
     pageDots: false,
-    lazyLoad: false,
     initialIndex: 2,
   });
   

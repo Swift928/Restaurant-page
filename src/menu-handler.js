@@ -1,8 +1,10 @@
-import { imageCarousel } from './entrees';
+import { imageCarousel as entreeCarousel } from './entrees';
+import { drinksElement } from './drinks';
 
 
 export const menuHandler = document.createElement('div')
 menuHandler.classList.add('menuHandler')
+
 
 
 let menuName = document.createElement('span') 
@@ -28,4 +30,22 @@ drinksButton.innerHTML = "Drinks"
 menuButtonContainer.appendChild(drinksButton)
 
 
-menuHandler.appendChild(imageCarousel)
+menuHandler.appendChild(entreeCarousel);
+menuHandler.appendChild(drinksElement)
+
+
+entreeButton.addEventListener('click', () => {
+    entreeCarousel.dataset.active = true
+    drinksElement.dataset.active = false
+});
+
+drinksButton.addEventListener('click', () => {
+    drinksElement.dataset.active = true
+    entreeCarousel.dataset.active = false
+});
+
+
+
+
+
+
