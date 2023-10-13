@@ -2,14 +2,13 @@ import firstDish from './images/BEJ_1958_original.jpg'
 import secondDish from './images/mott32-1920x1080-2.jpg'
 import thirdDish from './images/iberico-pork-1_1920x1080.jpg'
 import fourthDish from './images/best-peking-duck-hong-kong-mott-32.jpeg'
-import Flickity from 'flickity';
-import 'flickity/css/flickity.css';
+import { carouselSetup } from './flickity'
+
 
 
 
 export let imageCarousel = document.createElement('div')
 imageCarousel.classList.add('imageCarousel')
-imageCarousel.dataset.active = true
 
 let carouselWrapper = document.createElement('div')
 carouselWrapper.classList.add('carouselWrapper')
@@ -66,8 +65,6 @@ carouselWrapper.appendChild(pekingDuckItem)
 imageCarousel.appendChild(carouselWrapper)
 
 
-
-
 // Create the buttons
 let leftButton = document.createElement('button')
 leftButton.classList.add('leftButton')
@@ -83,24 +80,27 @@ imageCarousel.appendChild(rightButton)
 
 
 
+export let flkty;
 
-const flkty = new Flickity(carouselWrapper, {
-    cellAlign: 'center',
-    contain: false,
-    wrapAround: true,
-    autoPlay: false,
-    prevNextButtons: false,
-    pageDots: false,
-    initialIndex: 2,
-  });
-  
+export function reinitializeFlktyCarousel() {
+  // Destroy the existing carousel if it exists
+  if (flkty) {
+      flkty.destroy();
+  }
+
+  // Reinitialize the carousel
+  const newFlktyCarousel = carouselSetup(carouselWrapper);
+
+  // Assign the new carousel to the variable
+  flkty = newFlktyCarousel;
+}
 
 
-  leftButton.addEventListener('click', () => {
-    flkty.previous(); // Move to the previous slide
-  });
-  
-  // Event listener for the next button
-  rightButton.addEventListener('click', () => {
-    flkty.next(); // Move to the next slide
-  });
+leftButton.addEventListener('click', () => {
+  flkty.previous(); // Move to the previous slide
+});
+
+// Event listener for the next button
+rightButton.addEventListener('click', () => {
+  flkty.next(); // Move to the next slide
+});

@@ -83,6 +83,7 @@ body{
 }
 
 .imageCarousel{
+    display: none;
     margin: 0 auto;
     height: calc(100% - 57px);
 }
@@ -91,7 +92,11 @@ body{
     height: 100% !important;
 }
 
-[data-active=false]{
+[data-active-carousel]{
+    display: block
+}
+
+[data-active-tab=false]{
     display: none;
 }
 
@@ -253,4 +258,3 @@ body{
     align-items: center;
     padding: 0 30px;
 }
-

@@ -1,15 +1,17 @@
 import './style.css';
-import { homeContent } from './bodyContainer';
+import { bodyContainer } from './bodyContainer';
 import { header } from './menu-bar';
 import { footer } from './footer';
 
-function component(){
-    const element = document.createElement('content')
-    element.appendChild(header)
-    element.appendChild(homeContent)
-    element.appendChild(footer)
+// Page structure setup
+function component() {
+    const element = document.createElement('content');
+    element.appendChild(header);
+    element.appendChild(bodyContainer);
+    element.appendChild(footer);
 
-    return element
+    return element;
 }
-
-document.body.appendChild(component())
+  
+document.body.appendChild(component());
+  
