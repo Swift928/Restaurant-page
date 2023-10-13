@@ -1,6 +1,6 @@
 import './style.css';
 import { bodyContainer } from './bodyContainer';
-import { header } from './menu-bar';
+import { header } from './nav-bar';
 import { footer } from './footer';
 
 // Page structure setup

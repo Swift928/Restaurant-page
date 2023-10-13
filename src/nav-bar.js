@@ -42,6 +42,7 @@ function handleClick(e){
 
         if (this.innerHTML === tabName){
             if (item.dataset.activeTab === 'true') {
+                
                 return;
             } else {
                 item.setAttribute('data-active-tab', 'true')
@@ -50,7 +51,7 @@ function handleClick(e){
                 }
             }
         } else {
-            item.setAttribute('data-active-tab','false')
+            item.setAttribute('data-active-tab','false');
         }
     })
     if (menuTab) {
