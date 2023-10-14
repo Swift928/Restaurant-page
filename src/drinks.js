@@ -6,7 +6,7 @@ import { carouselSetup } from './flickity'
 
 
 export const drinkCarousel = document.createElement('div')
-drinkCarousel.classList.add('imageCarousel')
+drinkCarousel.classList.add('imageCarousel', 'drinksCarousel')
 
 
 let carouselWrapper = document.createElement('div')

@@ -70,3 +70,15 @@ export function initialSetup(){
         delete drinkCarousel.dataset.activeCarousel
     }
 }
+
+export function destroyCarousel(){
+
+    if (drinkCarousel.dataset.activeCarousel === 'true') {
+        delete drinkCarousel.dataset.activeCarousel
+    } else if (entreeCarousel.dataset.activeCarousel === 'true') {
+        delete entreeCarousel.dataset.activeCarousel
+    } else {
+        return
+    }
+
+}

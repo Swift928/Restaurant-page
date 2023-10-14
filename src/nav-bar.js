@@ -1,5 +1,5 @@
 import icon from './images/campfire-black-outline-60246.jpg'
-import { initialSetup } from './menuTab';
+import { initialSetup, destroyCarousel } from './menuTab';
 
 export const header = document.createElement('nav')
 
@@ -31,10 +31,12 @@ headerList.classList.add('nav-menu')
 infoButtonsDiv.appendChild(headerList)
 
 
+let loadContent = true;
 // Handles tab switching
 function handleClick(e){
     e.preventDefault()
     let tabs = document.querySelectorAll('.tab')
+    const centerContainer = document.querySelector('.centerContainer');
     let menuTab = null;
     
     tabs.forEach((item) =>{
@@ -42,12 +44,33 @@ function handleClick(e){
 
         if (this.innerHTML === tabName){
             if (item.dataset.activeTab === 'true') {
-                
                 return;
-            } else {
-                item.setAttribute('data-active-tab', 'true')
-                if (tabName === 'Menu'){
+            } else {    
+
+                if (tabName === "Menu") {
                     menuTab = true
+                    item.setAttribute('data-active-tab', 'true')
+                    centerContainer.style.width = ''
+                    centerContainer.style.height = ''
+                }
+
+                if (tabName != "Menu"){
+                    destroyCarousel()
+                }
+
+                if (tabName === "Home"){
+                    item.setAttribute('data-active-tab', 'true')
+                    loadContent = true
+                    centerContainer.style.width = 'clamp(300px, 50%, 500px)';
+                    centerContainer.style.height = 'clamp(300px, 50%, 500px)';
+
+                } else if (tabName === "About" || tabName === "Contact"){
+                    console.log(loadContent)
+                    item.setAttribute('data-active-tab', 'true')
+                    loadContent = false
+                    console.log(loadContent)
+                    centerContainer.style.width = ''
+                    centerContainer.style.height = ''
                 }
             }
         } else {
@@ -55,7 +78,11 @@ function handleClick(e){
         }
     })
     if (menuTab) {
-        initialSetup();
+        if (loadContent){
+            setTimeout(() =>{
+                initialSetup()
+            }, 501)
+        } else {initialSetup()} 
     }
 }
 
@@ -72,6 +99,8 @@ let headerItems = [
 headerItems.forEach((item) =>{
     let listItem = document.createElement('li')
     let anchor = document.createElement('a')
+
+    anchor.dataset.activeNavButton = 'false';
 
     anchor.innerHTML = item.label
     anchor.href = item.href

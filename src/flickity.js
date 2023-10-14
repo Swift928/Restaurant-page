@@ -13,7 +13,7 @@ function carouselSetup (item){
         initialIndex: 2,
     });
 
-    // flkty.resize()
+
     return flkty
 }
 

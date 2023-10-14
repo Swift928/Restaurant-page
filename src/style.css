@@ -1,6 +1,7 @@
 :root{
-    --name-color: red;
-    --secondary-name-color: rgba(192, 0, 0, .85); 
+    --name-color: #ff0000f1;
+    --secondary-name-color: Firebrick;
+    --about-text-color: #F5A623;
 }
 
 *,
@@ -10,15 +11,15 @@ body{
     padding: 0;
     box-sizing: border-box;
     font-family: "Neue Helvetica", helvetica, sans-serif;
+    overscroll-behavior-y: none;   
 }
+
 
 .header {
     height: calc(96px + 25px);
-    /* background-color: black; */
     background-color: black;
     display: flex;
     padding: 12px 30px 12px 30px;
-    /* margin-bottom: 1px; */
     z-index: 1000;
     border-bottom: 1px solid var(--secondary-name-color);
 }
@@ -69,7 +70,26 @@ body{
     letter-spacing: 0.5px;
     font-weight: 600;
     text-transform: uppercase;
+    cursor: pointer;
 }
+
+
+.infoButtons :has(li:hover) li:not(:hover),
+.tab :has(button:hover) button:not(:hover) {
+    opacity: .7 ;
+    scale: .9;
+}
+
+.nav-menu a:hover, [data-menu-button]:hover{
+    text-decoration: underline;
+    text-underline-offset: .2rem;
+}
+
+[data-menu-button],
+li{
+    transition: scale 350ms ease, opacity 350ms ease;
+}
+
 
 .main-content{
     position: relative;
@@ -99,6 +119,11 @@ body{
     display: none !important;
 }
 
+[data-active-nav-button = true]{
+    text-decoration: underline !important;
+    color: blue;
+}
+
 .main-content::after {
     content: "";
     position: absolute;
@@ -106,7 +131,7 @@ body{
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); /* Adjust the color and opacity as needed */
+    background-color: rgba(0, 0, 0, 0.6); 
 }
 
 .greetingHeader,
@@ -138,13 +163,19 @@ body{
     left: 50%;
     transform: translate(-50%, -50%);
     height: 65%;
-    width: 70vw;  /* Need to make this 500px when the homeContainer is in focus */
+    width: 70vw;
     padding: 20px 40px 20px 40px;
     border-radius: 2%;
     box-shadow: 
     0 0 10px rgba(255, 0, 0, 0.2),
     0 0 10px rgba(255, 0, 0, 0.45);
     overflow-y: auto;
+    overflow-x: hidden;
+    transition: all 0.5s ease-in-out;
+}
+
+.restaurantNameAbout{
+    color: var(--name-color);
 }
 
 .carouselItem {
@@ -161,6 +192,12 @@ body{
     height: calc(100% - 24px);
 }
 
+.drinksCarousel .dishImage{
+    aspect-ratio: 1/1;
+}
+
+
+
 .flickity-viewport {
     overflow: visible !important;
 }
@@ -168,8 +205,6 @@ body{
 .flickity-cell {
     transition: opacity 0.7s ease-in-out;
     opacity: .3;
-    /* margin-bottom: 20px; */
-    /* height: auto; */
 }
 
 .menuHandler{
@@ -294,7 +329,7 @@ body{
 
 
 .aboutDescription {
-    color: #F5A623; /* A warm, inviting color */
+    color: #F5A623; 
     font-size: 18px;
     line-height: 1.6;
     text-align: justify;
@@ -313,7 +348,7 @@ body{
     font-size: 28px;
     text-align: center;
     margin-bottom: 20px;
-    color: #F5A623; /* A matching color for the title */
+    color: #F5A623; 
   }
   
 
