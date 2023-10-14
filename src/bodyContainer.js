@@ -3,6 +3,7 @@ import { homeTab } from './homeTab';
 import { menuHandler as menuTab } from './menuTab';
 import { contactHandler as contactTab } from './contactTab';
 import { aboutHandler } from './aboutTab';
+import { creditsHandler } from './creditsTab';
 
 // Create the Container Div
 const element = document.createElement('div')
@@ -25,6 +26,7 @@ centerContainer.appendChild(homeTab)
 centerContainer.appendChild(menuTab)
 centerContainer.appendChild(contactTab)
 centerContainer.appendChild(aboutHandler)
+centerContainer.appendChild(creditsHandler)
 
 
 element.appendChild(centerContainer)

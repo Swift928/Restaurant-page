@@ -64,11 +64,9 @@ function handleClick(e){
                     centerContainer.style.width = 'clamp(300px, 50%, 500px)';
                     centerContainer.style.height = 'clamp(300px, 50%, 500px)';
 
-                } else if (tabName === "About" || tabName === "Contact"){
-                    console.log(loadContent)
+                } else if (tabName === "About" || tabName === "Contact" || tabName === "Credits"){
                     item.setAttribute('data-active-tab', 'true')
                     loadContent = false
-                    console.log(loadContent)
                     centerContainer.style.width = ''
                     centerContainer.style.height = ''
                 }
@@ -91,7 +89,8 @@ let headerItems = [
     {label: 'Home', href: "#"},
     {label: 'Menu', href: "#"},
     {label: 'Contact', href: "#"},
-    {label: 'About', href: "#"}
+    {label: 'About', href: "#"},
+    {label: 'Credits', href: "#"}
 ]
 
 

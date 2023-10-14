@@ -14,7 +14,6 @@ body{
     overscroll-behavior-y: none;   
 }
 
-
 .header {
     height: calc(96px + 25px);
     background-color: black;
@@ -72,7 +71,6 @@ body{
     text-transform: uppercase;
     cursor: pointer;
 }
-
 
 .infoButtons :has(li:hover) li:not(:hover),
 .tab :has(button:hover) button:not(:hover) {
@@ -152,7 +150,7 @@ li{
     font-size: 42px;
     text-align: center;
     margin-bottom: 40px;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .centerContainer{
@@ -195,8 +193,6 @@ li{
 .drinksCarousel .dishImage{
     aspect-ratio: 1/1;
 }
-
-
 
 .flickity-viewport {
     overflow: visible !important;
@@ -243,9 +239,9 @@ li{
     display: block;
     text-align: center;
     margin-bottom: 5px;
+    font-weight: 500;
 }
   
-
 .creatorContainer{
     display: flex;
     gap: 5px;
@@ -279,11 +275,6 @@ li{
     background-color: antiquewhite;
 }
 
-.contactHandler  *{
-    color: var(--secondary-name-color);
-}
-
-
 .footer{
     height: 70px;
     font-size: 15px;
@@ -296,7 +287,6 @@ li{
     padding: 0 30px;
 }
 
-
 .contactHandler {
     padding: 20px;
     overflow: hidden;
@@ -307,7 +297,8 @@ li{
     display: grid;
     margin-bottom: 20px;
     font-size: 36px;
-    font-weight: bold;
+    font-weight: 500;
+    color: var(--name-color);
 }
 
 .contactInfo {
@@ -322,11 +313,11 @@ li{
     font-weight: bold;
 }
 
-.contactInfo p{
+.contactInfo :is(strong, p){
     font-size: 16px;
     line-height: 1.25;
+    color: var(--about-text-color);
 }
-
 
 .aboutDescription {
     color: #F5A623; 
@@ -334,24 +325,46 @@ li{
     line-height: 1.6;
     text-align: justify;
     padding: 20px;
-  }
+}
   
-  .aboutHandler {
+.aboutHandler {
     overflow: hidden;
     display: grid;
     grid-template-columns: 1fr;
-    grid-gap: 20px;
+    /* grid-gap: 20px; */
     padding: 20px;
-  }
+}
+
+.creditsHandler{
+    /* overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px; */
+    padding: 20px;
+}
   
-  .aboutTitle {
+.aboutTitle {
     font-size: 28px;
     text-align: center;
     margin-bottom: 20px;
     color: #F5A623; 
-  }
-  
+}
 
-  
+.creatorName{
+    color: var(--about-text-color);
+    margin-bottom: .15rem;
+    font-size: 18px;
+}
 
+.credit{
+    margin-bottom: 20px;
+}
 
+.sourceWebsite *, .sourceWebsite {
+    color: var(--secondary-name-color);
+    margin-left: 1rem;
+}
+
+.sourceWebsite a:hover{
+    color: blue;
+}
