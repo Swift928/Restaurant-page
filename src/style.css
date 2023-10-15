@@ -32,6 +32,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 100%;
     padding: 6px 0 6px 15px;
     margin-left: 30px;
     border-left: 1px solid var(--name-color);
@@ -40,6 +41,7 @@ body{
 .restaurantName,
 .menuName{
     display: inline-block;
+    text-wrap: nowrap;
     font-size: 30px;
     color: var(--name-color);
     line-height: 1em;
@@ -97,6 +99,7 @@ li{
 .homeImage{
     height: 100%;
     width: 100%;
+    object-fit: cover;
 }
 
 .imageCarousel{
@@ -162,7 +165,7 @@ li{
     transform: translate(-50%, -50%);
     height: 65%;
     width: 70vw;
-    padding: 20px 40px 20px 40px;
+    padding: 20px 40px;
     border-radius: 2%;
     box-shadow: 
     0 0 10px rgba(255, 0, 0, 0.2),
@@ -244,6 +247,7 @@ li{
   
 .creatorContainer{
     display: flex;
+    align-items: center;
     gap: 5px;
 }
 
@@ -331,15 +335,10 @@ li{
     overflow: hidden;
     display: grid;
     grid-template-columns: 1fr;
-    /* grid-gap: 20px; */
-    padding: 20px;
 }
 
-.creditsHandler{
-    /* overflow: hidden;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 20px; */
+.creditsHandler,
+.aboutHandler{
     padding: 20px;
 }
   
@@ -367,4 +366,124 @@ li{
 
 .sourceWebsite a:hover{
     color: blue;
+}
+
+.menuSvg{
+    display: none;
+}
+
+@media screen and (max-width: 768px){
+    .header{
+        position: relative;
+        height: 70px;
+        padding: 5px 10px;
+    }
+
+    .infoButtons{
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin-left: 10px;
+    }
+
+    .main-content{
+        height: calc(100vh - 120px);
+    }
+
+    .nav-menu{
+        display: flex;
+        margin-top: 1px;
+        background-color: rgb(0,0,0, 1);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        gap: 20px;
+        z-index: 50;
+        flex-direction: column;
+        align-items: center;
+        max-height: 1px;
+        overflow: hidden;
+    }
+
+    .nav-menu.active{
+        padding: 20px 0;
+        transition: all 0.5s ease;
+        max-height: 1000px;
+    }
+
+    .aboutTitle{
+        margin-bottom: 10px;
+    }
+
+    .sourceWebsite{
+        display: flex;
+        flex-direction: column;
+        margin-left: 10px;
+    }
+
+    .sourceWebsite a{
+        margin-left: 0;
+    }
+
+    .centerContainer{
+        width: 85% !important;
+        height: 60vh !important;
+        padding: 20px 10px;
+    }
+    
+    .contactTitle{
+        text-align: center;
+    }
+
+    .restaurantName {
+        margin-bottom: 0;
+        font-size: 1.6rem;
+    }
+
+    .menuSvg{
+        display: block;
+        fill: var(--secondary-name-color);
+        height: 100%;
+        width: auto;
+        cursor: pointer;
+    }
+
+    .creditsHandler,
+    .aboutHandler,
+    .contactHandler{
+        padding: 0;
+        text-wrap: wrap;
+    }
+
+    .creditsHandler{
+        overflow-wrap: break-word;
+    }
+
+    .rightButton{
+        right: 7%;
+    }
+
+    .leftButton{
+        left: 7%;
+    }
+
+    .contactInfo{
+        grid-template-columns: none;
+    }
+
+    .contactInfo p{
+        color: var(--secondary-name-color);
+        margin-left: 10px;
+    }
+
+    .footer{
+        height: 50px;
+        font-size: 10px;
+        padding: 5px 15px;
+    }
+
+    .footer #navLogo{
+        display: none;
+    }
 }

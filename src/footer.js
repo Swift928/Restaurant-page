@@ -33,5 +33,5 @@ footer.appendChild(myIcon)
 // Rights reserved
 let rightsText = document.createElement('div')
 rightsText.classList.add('rightsText')
-rightsText.innerHTML = '©2023 - Oh Sey Nami'
+rightsText.innerHTML = '2023 - Oh Sey Nami'
 footer.appendChild(rightsText)

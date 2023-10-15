@@ -5,7 +5,8 @@ module.exports = {
   entry: './src/index.js',
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Output Management',
+      title: 'Oh Sey Nami',
+      favicon: './src/images/plate_8827075.png',
     }),
   ],
   output: {

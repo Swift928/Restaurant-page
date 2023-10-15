@@ -1,5 +1,6 @@
 import icon from './images/campfire-black-outline-60246.jpg'
 import { initialSetup, destroyCarousel } from './menuTab';
+import { menuSvg } from './menuSvg';
 
 export const header = document.createElement('nav')
 
@@ -29,6 +30,23 @@ infoButtonsDiv.appendChild(restaurantName)
 let headerList = document.createElement('ul')
 headerList.classList.add('nav-menu')
 infoButtonsDiv.appendChild(headerList)
+
+// Menu svg
+let menuSvgContainer = menuSvg
+menuSvgContainer.classList.add('menuSvg')
+infoButtonsDiv.appendChild(menuSvgContainer)
+
+menuSvgContainer.addEventListener('click', ()=>{
+    headerList.classList.toggle('active')
+})
+
+function lessScreen(e){
+    e.preventDefault()
+    const headerList = document.querySelector('.nav-menu');
+        if (window.innerWidth <= 768) {
+            headerList.classList.remove('active');
+        }
+}
 
 
 let loadContent = true;
@@ -105,6 +123,7 @@ headerItems.forEach((item) =>{
     anchor.href = item.href
 
     anchor.addEventListener('click', handleClick);
+    anchor.addEventListener('click', lessScreen)
     listItem.appendChild(anchor)
     headerList.appendChild(listItem)
 })
