@@ -31,35 +31,70 @@ let headerList = document.createElement('ul')
 headerList.classList.add('nav-menu')
 infoButtonsDiv.appendChild(headerList)
 
+// Overlay
+let overLay = document.createElement('div')
+overLay.classList.add('overlay')
+overLay.addEventListener('click', lessScreen)
+headerList.appendChild(overLay)
+
+
 // Menu svg
 let menuSvgContainer = menuSvg
 menuSvgContainer.classList.add('menuSvg')
 infoButtonsDiv.appendChild(menuSvgContainer)
-
 menuSvgContainer.addEventListener('click', ()=>{
     headerList.classList.toggle('active')
 })
 
+
+// Need to make the Li item
+// const navItems = document.querySelectorAll('.nav-menu li');
+// navItems.forEach(item =>{
+//     item.addEventListener('click', handleItemClick)
+// })
+
+// function handleItemClick(event) {
+//     event.preventDefault()
+    
+//     if (window.innerWidth <= 768) {
+        
+//         const link = event.currentTarget.querySelector('a');
+
+//         if (link) {
+//         link.handleClick(event);
+//         }
+//     }
+// }
+
+
 function lessScreen(e){
     e.preventDefault()
-    const headerList = document.querySelector('.nav-menu');
         if (window.innerWidth <= 768) {
             headerList.classList.remove('active');
         }
 }
 
+function initialContainerDimension(){
+    const centerContainer = document.querySelector('.centerContainer');
+    centerContainer.style.width = ''
+    centerContainer.style.height = ''
+}
+
+export function homeTabContainerDimension(){
+    const centerContainer = document.querySelector('.centerContainer');
+    centerContainer.style.width = 'clamp(300px, 50%, 500px)';
+    centerContainer.style.height = 'max-content';
+}
 
 let loadContent = true;
 // Handles tab switching
 function handleClick(e){
     e.preventDefault()
     let tabs = document.querySelectorAll('.tab')
-    const centerContainer = document.querySelector('.centerContainer');
     let menuTab = null;
     
     tabs.forEach((item) =>{
         let tabName = item.getAttribute('data-label')
-
         if (this.innerHTML === tabName){
             if (item.dataset.activeTab === 'true') {
                 return;
@@ -68,8 +103,7 @@ function handleClick(e){
                 if (tabName === "Menu") {
                     menuTab = true
                     item.setAttribute('data-active-tab', 'true')
-                    centerContainer.style.width = ''
-                    centerContainer.style.height = ''
+                    initialContainerDimension()
                 }
 
                 if (tabName != "Menu"){
@@ -79,14 +113,12 @@ function handleClick(e){
                 if (tabName === "Home"){
                     item.setAttribute('data-active-tab', 'true')
                     loadContent = true
-                    centerContainer.style.width = 'clamp(300px, 50%, 500px)';
-                    centerContainer.style.height = 'clamp(300px, 50%, 500px)';
+                    homeTabContainerDimension()
 
                 } else if (tabName === "About" || tabName === "Contact" || tabName === "Credits"){
                     item.setAttribute('data-active-tab', 'true')
                     loadContent = false
-                    centerContainer.style.width = ''
-                    centerContainer.style.height = ''
+                    initialContainerDimension()
                 }
             }
         } else {
@@ -103,14 +135,18 @@ function handleClick(e){
 }
 
 
-let headerItems = [
-    {label: 'Home', href: "#"},
-    {label: 'Menu', href: "#"},
-    {label: 'Contact', href: "#"},
-    {label: 'About', href: "#"},
-    {label: 'Credits', href: "#"}
-]
+function createHeaderItems(){
+    let headerItems = [
+        {label: 'Home', href: "#"},
+        {label: 'Menu', href: "#"},
+        {label: 'Contact', href: "#"},
+        {label: 'About', href: "#"},
+        {label: 'Credits', href: "#"}
+    ];
+    return headerItems
+}
 
+const headerItems = createHeaderItems()
 
 // Creates the nav-bar tabs 
 headerItems.forEach((item) =>{

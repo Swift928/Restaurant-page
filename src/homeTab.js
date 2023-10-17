@@ -1,3 +1,4 @@
+import { homeTabContainerDimension } from "./nav-bar"
 
 const element = document.createElement('div')
 element.classList.add('homeContainer', 'tab')
@@ -18,11 +19,7 @@ greetingContent.innerHTML = "OH SEY NAMI: Culinary artistry, impeccable cuisine,
 element.appendChild(greetingContent)
 
 document.addEventListener('DOMContentLoaded', () =>{
-    const centerContainer = document.querySelector('.centerContainer');
-    centerContainer.style.width = 'clamp(300px, 50%, 500px)';
-    centerContainer.style.height = 'clamp(300px, 50%, 500px)';
+    homeTabContainerDimension()
 })
-
-
 
 export{element as homeTab}
